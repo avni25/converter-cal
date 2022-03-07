@@ -41,16 +41,27 @@ export default class BuckConverter extends React.Component{
     render(){
         return(
             <div>
-                <label htmlFor="v-in">Vin</label>
-                <input id="v-in" onChange={this.handleChange} value={this.state.vin}/>
-                <label htmlFor="v-out">Vout</label>
-                <input id="v-out" onChange={this.handleChange} value={this.state.vout}/>
-                <label htmlFor="ripple">Ripple</label>
-                <input id="ripple" onChange={this.handleChange} value={this.state.ripple}/>
-                <label htmlFor="freq">Freq</label>
-                <input id="freq" onChange={this.handleChange} value={this.state.freq}/>
-                <label htmlFor="res">Res</label>
-                <input id="res" onChange={this.handleChange} value={this.state.res}/>
+                <p>
+                    <label htmlFor="v-in">Vin</label>
+                    <input id="v-in" onChange={this.handleChange} value={this.state.vin}/>
+                </p>
+                <p>
+                    <label htmlFor="v-out">Vout</label>
+                    <input id="v-out" onChange={this.handleChange} value={this.state.vout}/>
+                </p>
+                <p>
+                    <label htmlFor="ripple">Ripple</label>
+                    <input id="ripple" onChange={this.handleChange} value={this.state.ripple}/>
+                </p>
+                <p>
+                    <label htmlFor="freq">Freq</label>
+                    <input id="freq" onChange={this.handleChange} value={this.state.freq}/>
+                </p>
+                <p>
+                    <label htmlFor="res">Res</label>
+                    <input id="res" onChange={this.handleChange} value={this.state.res}/>
+                </p>
+                
                 <button onClick={()=>{this.showMe()}}>Calculate</button>
             </div>
         )
