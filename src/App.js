@@ -10,6 +10,9 @@ class App extends React.Component {
     }
   }
   
+  componentDidMount(){
+    document.title = "Converter"
+  }
 
   render() {
     return (

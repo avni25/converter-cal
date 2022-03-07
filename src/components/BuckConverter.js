@@ -16,7 +16,7 @@ export default class BuckConverter extends React.Component{
 
     handleChange(e){
         var regEx = /\d+/gi;
-        console.log(e.target.id);
+        console.log(e);
         if(e.target.id == "v-in"){
             if(regEx.test(e.target.value)){            
                 this.setState({vin: parseFloat(e.target.value)});
@@ -29,7 +29,7 @@ export default class BuckConverter extends React.Component{
     }
 
     showMe(){
-        console.log(this.state);
+        console.log();
     }
 
     componentWillUnmount(){
@@ -37,12 +37,20 @@ export default class BuckConverter extends React.Component{
     }
 
 
-    
+
     render(){
         return(
             <div>
                 <label htmlFor="v-in">Vin</label>
                 <input id="v-in" onChange={this.handleChange} value={this.state.vin}/>
+                <label htmlFor="v-out">Vout</label>
+                <input id="v-out" onChange={this.handleChange} value={this.state.vout}/>
+                <label htmlFor="ripple">Ripple</label>
+                <input id="ripple" onChange={this.handleChange} value={this.state.ripple}/>
+                <label htmlFor="freq">Freq</label>
+                <input id="freq" onChange={this.handleChange} value={this.state.freq}/>
+                <label htmlFor="res">Res</label>
+                <input id="res" onChange={this.handleChange} value={this.state.res}/>
                 <button onClick={()=>{this.showMe()}}>Calculate</button>
             </div>
         )
