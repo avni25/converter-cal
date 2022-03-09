@@ -38,6 +38,7 @@ class App extends React.Component {
           <TabPanel>
             <div id="boost-container">
               <h1>Boost Converter</h1>
+              <BoostConverter />
             </div>
           </TabPanel>
         </Tabs>

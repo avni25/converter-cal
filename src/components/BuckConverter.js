@@ -10,7 +10,7 @@ export default class BuckConverter extends React.Component{
         this.state = {
             vin: 12,
             vout: 5,
-            ripple: 0.05,
+            ripple: 0.005,
             freq: 40000,
             res: 10,
             safety: 1.25,
