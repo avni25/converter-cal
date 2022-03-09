@@ -1,5 +1,8 @@
-div{
+#buck-container{
     background-color: darkgrey;
+}
+#boost-container{
+    background-color: rgb(105, 145, 123);
 }
 
 input{
