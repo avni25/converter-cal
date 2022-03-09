@@ -13,6 +13,7 @@ export default class BuckConverter extends React.Component{
             ripple: 0.05,
             freq: 40000,
             res: 10,
+            safety: 1.25,
             htmlID: {
                 vin:"vin",
                 vout: "vout",
@@ -47,7 +48,7 @@ export default class BuckConverter extends React.Component{
         if(this.state.vin< this.state.vout){
             console.log("wrong input!!");
         }else{
-            console.log(calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, this.state.res));
+            console.log(calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, this.state.res, this.state.safety));
         }
 
 
