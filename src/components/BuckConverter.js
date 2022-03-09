@@ -1,4 +1,12 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import {calculateBoostComps, calculateBuckComps} from "../converters/converters";
+
+
+const style_btn = {
+    backgroundColor: "E24F30"
+};
+
 
 export default class BuckConverter extends React.Component{
     constructor(props){
@@ -10,8 +18,8 @@ export default class BuckConverter extends React.Component{
             freq: 40000,
             res: 10,
             htmlID: {
-                vin:"v-in",
-                vout: "v-out",
+                vin:"vin",
+                vout: "vout",
                 ripple: "ripple",
                 freq: "freq",
                 res: "res"
@@ -19,47 +27,18 @@ export default class BuckConverter extends React.Component{
         }
 
         
-        // this.handleChange = this.handleClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e){
-        var regEx = /\d+/gi;
+        // var regEx = /\d+/gi;
         console.log(e.target);
-        if(e.target.id == this.state.htmlID.vin){
-            // if(regEx.test(e.target.value)){            
-            //     this.setState({vin: parseFloat(e.target.value)});
-            // }
-            this.setState({...this.state, vin: e.target.value});
-        }else if(e.target.id == this.state.htmlID.vout){
-            this.setState({vout: e.target.value});
-        }else if(e.target.id == this.state.htmlID.ripple){
-            this.setState({ripple: e.target.value});
-        }else if(e.target.id == this.state.htmlID.freq){
-            this.setState({freq: e.target.value});
-        }else if(e.target.id == this.state.htmlID.res){
-            this.setState({res: e.target.value});
-        }else{
-
-        }
-
-        
+        this.setState({ ...this.state, [e.target.id]: e.target.value });   
     }
 
-    // handleClick(e){
+    handleClick(){
         
-    //     this.setState({
-    //         ...this.state,
-    //         vin: parseFloat(this.state.vin),
-    //         vout: parseFloat(this.state.vout),
-    //         ripple: parseFloat(this.state.ripple),
-    //         freq: parseFloat(this.state.freq),
-    //         res: parseFloat(this.state.res)
-    //     });
-    //     console.log(this.state);
-    // }
-
-    showMe(){
         this.setState({
             ...this.state,
             vin: parseFloat(this.state.vin),
@@ -68,8 +47,23 @@ export default class BuckConverter extends React.Component{
             freq: parseFloat(this.state.freq),
             res: parseFloat(this.state.res)
         });
-       
-        console.log(this.state);
+        console.log(this.state.ripple * 20);
+
+        console.log(calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, thisstate.res));
+
+
+    }
+
+    showMe(){        
+        
+        this.setState({
+            ...this.state,
+            vin: parseFloat(this.state.vin),
+            vout: parseFloat(this.state.vout),
+            ripple: parseFloat(this.state.ripple),
+            freq: parseFloat(this.state.freq),
+            res: parseFloat(this.state.res)
+        });
     }
 
     componentWillUnmount(){
@@ -78,12 +72,24 @@ export default class BuckConverter extends React.Component{
 
     componentDidUpdate(){
         console.log("updated");
+        console.log(this.state);
+        
     }
 
 
     render(){
         return(
             <div>
+                <style type="text/css">
+                    {`
+                        .btn-calc {
+                        background-color: purple;
+                        color: white;
+                        margin-left: 50px;
+                        width: 100px;
+                        }`
+                    }
+                </style>
                 <p>
                     <label htmlFor={this.state.htmlID.vin}>Vin</label>
                     <input id={this.state.htmlID.vin} onChange={this.handleChange} value={this.state.vin}/>
@@ -105,7 +111,7 @@ export default class BuckConverter extends React.Component{
                     <input id={this.state.htmlID.res} onChange={this.handleChange} value={this.state.res}/>
                 </p>
                 
-                <button onClick={()=>{this.showMe()}}>Calculate</button>
+                <Button  variant="calc" onClick={this.handleClick}>Calculate</Button>
             </div>
         )
     }

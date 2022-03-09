@@ -1,0 +1,15 @@
+div{
+    background-color: darkgrey;
+}
+
+input{
+    position: fixed;
+    display:inline-block;
+    width: 100px;
+}
+label{
+    display:inline-block;
+    width: 50px;
+    font-weight: bold;
+}
+
