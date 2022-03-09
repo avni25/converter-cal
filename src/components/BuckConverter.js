@@ -1,11 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import {calculateBoostComps, calculateBuckComps} from "../converters/converters";
+import {calculateBuckComps} from "../converters/converters";
 
-
-const style_btn = {
-    backgroundColor: "E24F30"
-};
 
 
 export default class BuckConverter extends React.Component{
@@ -14,7 +10,7 @@ export default class BuckConverter extends React.Component{
         this.state = {
             vin: 12,
             vout: 5,
-            ripple: 0.01,
+            ripple: 0.05,
             freq: 40000,
             res: 10,
             htmlID: {
@@ -33,7 +29,7 @@ export default class BuckConverter extends React.Component{
 
     handleChange(e){
         // var regEx = /\d+/gi;
-        console.log(e.target);
+        // console.log(e.target);
         this.setState({ ...this.state, [e.target.id]: e.target.value });   
     }
 
@@ -47,24 +43,16 @@ export default class BuckConverter extends React.Component{
             freq: parseFloat(this.state.freq),
             res: parseFloat(this.state.res)
         });
-        console.log(this.state.ripple * 20);
-
-        console.log(calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, thisstate.res));
+        // console.log(this.state.ripple * 20);
+        if(this.state.vin< this.state.vout){
+            console.log("wrong input!!");
+        }else{
+            console.log(calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, this.state.res));
+        }
 
 
     }
 
-    showMe(){        
-        
-        this.setState({
-            ...this.state,
-            vin: parseFloat(this.state.vin),
-            vout: parseFloat(this.state.vout),
-            ripple: parseFloat(this.state.ripple),
-            freq: parseFloat(this.state.freq),
-            res: parseFloat(this.state.res)
-        });
-    }
 
     componentWillUnmount(){
         console.log("unmount");  

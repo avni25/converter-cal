@@ -18,6 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h1>Buck Converter</h1>
         <BuckConverter />
       </div>
     );

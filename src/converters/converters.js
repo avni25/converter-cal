@@ -1,6 +1,6 @@
 
 
-export default function calculateBuckComps(v_in, v_out, rippleRatio, freq, res){
+function calculateBuckComps(v_in, v_out, rippleRatio, freq, res){
 
     var D = v_out /v_in;
     var lmin = (((1-D) * res) / (2*freq)) * 1.25;
@@ -23,7 +23,7 @@ export default function calculateBuckComps(v_in, v_out, rippleRatio, freq, res){
 
 }
 
-export default function calculateBoostComps(v_in, v_out, rippleRatio, freq, res){
+function calculateBoostComps(v_in, v_out, rippleRatio, freq, res){
     var D = 1-(v_in / v_out);
     var lmin = ((D * Math.pow(1-D, 2) * res) / (2*freq) ) * 1.2;
     var IL = v_in / (Math.pow(1-D, 2) * res);
@@ -36,3 +36,7 @@ export default function calculateBoostComps(v_in, v_out, rippleRatio, freq, res)
     return arr;
 
 }
+
+
+
+export {calculateBuckComps, calculateBoostComps}
