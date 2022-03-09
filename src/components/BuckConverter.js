@@ -19,10 +19,10 @@ export default class BuckConverter extends React.Component{
                 vout: "vout",
                 ripple: "ripple",
                 freq: "freq",
-                res: "res"
+                res: "res",
+                safety: "safety"
             }
         }
-
         
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -30,7 +30,7 @@ export default class BuckConverter extends React.Component{
 
     handleChange(e){
         // var regEx = /\d+/gi;
-        // console.log(e.target);
+        console.log(e.target);
         this.setState({ ...this.state, [e.target.id]: e.target.value });   
     }
 
@@ -44,14 +44,13 @@ export default class BuckConverter extends React.Component{
             freq: parseFloat(this.state.freq),
             res: parseFloat(this.state.res)
         });
-        // console.log(this.state.ripple * 20);
+        var arr = calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, this.state.res, this.state.safety);
         if(this.state.vin< this.state.vout){
             console.log("wrong input!!");
         }else{
-            console.log(calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, this.state.res, this.state.safety));
+            console.log(arr);
         }
-
-
+        
     }
 
 
@@ -60,7 +59,6 @@ export default class BuckConverter extends React.Component{
     }
 
     componentDidUpdate(){
-        console.log("updated");
         console.log(this.state);
         
     }
@@ -68,7 +66,7 @@ export default class BuckConverter extends React.Component{
 
     render(){
         return(
-            <div>
+            <div>   
                 <style type="text/css">
                     {`
                         .btn-calc {
@@ -78,7 +76,8 @@ export default class BuckConverter extends React.Component{
                         width: 100px;
                         }`
                     }
-                </style>
+                </style>                             
+                {/* <InputGroup vin={this.state.vin} vout={this.state.vout} ripple={this.state.ripple} freq={this.state.freq} res={this.state.res} safety={this.state.safety}/> */}
                 <p>
                     <label htmlFor={this.state.htmlID.vin}>Vin</label>
                     <input id={this.state.htmlID.vin} onChange={this.handleChange} value={this.state.vin}/>
@@ -99,8 +98,12 @@ export default class BuckConverter extends React.Component{
                     <label htmlFor={this.state.htmlID.res}>Res</label>
                     <input id={this.state.htmlID.res} onChange={this.handleChange} value={this.state.res}/>
                 </p>
-                
-                <Button  variant="calc" onClick={this.handleClick}>Calculate</Button>
+                <p>
+                    <label htmlFor={this.state.htmlID.safety}>Safety %</label>
+                    <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.safety}/>
+                </p>
+                <Button  variant="calc" onClick={this.handleClick}>Calculate</Button>              
+
             </div>
         )
     }

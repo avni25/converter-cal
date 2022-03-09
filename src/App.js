@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import BuckConverter from "./components/BuckConverter";
+import BoostConverter from './components/BoostConverter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -37,7 +38,6 @@ class App extends React.Component {
           <TabPanel>
             <div id="boost-container">
               <h1>Boost Converter</h1>
-              
             </div>
           </TabPanel>
         </Tabs>
