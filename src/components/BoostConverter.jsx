@@ -1,49 +1,59 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import {calculateBuckComps} from "../converters/converters";
+import {calculateBoostComps} from "../converters/converters";
 
 
 export default class BoostConverter extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            vin: 5,
-            vout: 12,
-            ripple: 0.01,
-            freq: 25000,
-            res: 50,
-            safety: 1.2,
+            bvin: 5,
+            bvout: 12,
+            bripple: 0.01,
+            bfreq: 25000,
+            bres: 50,
+            bsafety: 1.2,
             htmlID: {
-                vin:"boost-vin",
-                vout: "boost-vout",
-                ripple: "boost-ripple",
-                freq: "boost-freq",
-                res: "boost-res",
-                safety: "boost-safety"
+                vin:"bvin",
+                vout: "bvout",
+                ripple: "bripple",
+                freq: "bfreq",
+                res: "bres",
+                safety: "bsafety"
             }
         }
-        this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        
     }
 
     handleChange(e){
         // var regEx = /\d+/gi;
         console.log(e.target);
         this.setState({ ...this.state, [e.target.id]: e.target.value });   
+        console.log(e.target.value);
     }
 
+    componentWillUnmount(){
+        console.log("unmount");  
+    }
+
+    componentDidUpdate(){
+        console.log(this.state);
+        
+    }
     handleClick(){
         
         this.setState({
             ...this.state,
-            vin: parseFloat(this.state.vin),
-            vout: parseFloat(this.state.vout),
-            ripple: parseFloat(this.state.ripple),
-            freq: parseFloat(this.state.freq),
-            res: parseFloat(this.state.res)
+            vin: parseFloat(this.state.bvin),
+            vout: parseFloat(this.state.bvout),
+            ripple: parseFloat(this.state.bripple),
+            freq: parseFloat(this.state.bfreq),
+            res: parseFloat(this.state.bres)
         });
-        var arr = calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, this.state.res, this.state.safety);
-        if(this.state.vin > this.state.vout){
+        var arr = calculateBoostComps(this.state.bvin, this.state.bvout, this.state.bripple, this.state.bfreq, this.state.bres, this.state.bsafety);
+        if(this.state.bvin > this.state.bvout){
             console.log("wrong input!!");
         }else{
             console.log(arr);
@@ -56,27 +66,27 @@ export default class BoostConverter extends React.Component{
             <div>
                  <p>
                     <label htmlFor={this.state.htmlID.vin}>Vin</label>
-                    <input id={this.state.htmlID.vin} onChange={this.handleChange} value={this.state.vin}/>
+                    <input id={this.state.htmlID.vin} onChange={this.handleChange} value={this.state.bvin}/>
                 </p>
                 <p>
                     <label htmlFor={this.state.htmlID.vout}>Vout</label>
-                    <input id={this.state.htmlID.vout} onChange={this.handleChange} value={this.state.vout}/>
+                    <input id={this.state.htmlID.vout} onChange={this.handleChange} value={this.state.bvout}/>
                 </p>
                 <p>
                     <label htmlFor={this.state.htmlID.ripple}>Ripple</label>
-                    <input id={this.state.htmlID.ripple} onChange={this.handleChange} value={this.state.ripple}/>
+                    <input id={this.state.htmlID.ripple} onChange={this.handleChange} value={this.state.bripple}/>
                 </p>
                 <p>
                     <label htmlFor={this.state.htmlID.freq}>Freq</label>
-                    <input id={this.state.htmlID.freq} onChange={this.handleChange} value={this.state.freq}/>
+                    <input id={this.state.htmlID.freq} onChange={this.handleChange} value={this.state.bfreq}/>
                 </p>
                 <p>
                     <label htmlFor={this.state.htmlID.res}>Res</label>
-                    <input id={this.state.htmlID.res} onChange={this.handleChange} value={this.state.res}/>
+                    <input id={this.state.htmlID.res} onChange={this.handleChange} value={this.state.bres}/>
                 </p>
                 <p>
                     <label htmlFor={this.state.htmlID.safety}>Safety %</label>
-                    <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.safety}/>
+                    <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.bsafety}/>
                 </p>
                 <Button  variant="primary" onClick={this.handleClick}>Calculate</Button>   
             </div>
