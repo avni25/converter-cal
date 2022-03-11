@@ -122,9 +122,9 @@ export default class BuckConverter extends React.Component{
                     <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.safety}/>
                 </p>
                 <Button  variant="calc" onClick={this.handleClick}>Calculate</Button>              
-                <div id="buck-results-container"> 
+                <div className="results-container"> 
                         { this.state.resultsDisplay ?
-                            <div>
+                            <div  id="buck-results-container">
                                 <h1>Results</h1>
                                 <p><span>inductor: </span> {this.state.results.inductor} H</p>
                                 <p><span>capacitor: </span> {this.state.results.capacitor} F</p>
@@ -134,7 +134,8 @@ export default class BuckConverter extends React.Component{
                                 <p><span>D: </span> {this.state.results.d} ratio</p>
                             </div>                        
                          : 
-                            <h1></h1> } </div>
+                            <h1></h1> } 
+                </div>
             </div>
         )
     }

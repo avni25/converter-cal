@@ -14,6 +14,13 @@ export default class BoostConverter extends React.Component{
             bfreq: 25000,
             bres: 50,
             bsafety: 1.2,
+            resultsDisplay: false,
+            results: {
+                inductor: 0,
+                capacitor: 0,
+                irms:0,
+                d:0
+            },
             htmlID: {
                 vin:"bvin",
                 vout: "bvout",
@@ -41,28 +48,35 @@ export default class BoostConverter extends React.Component{
     componentDidUpdate(){
         console.log(this.state);        
     }
+
     handleClick(){
-        
+        var arr = calculateBoostComps(this.state.bvin, this.state.bvout, this.state.bripple, this.state.bfreq, this.state.bres, this.state.bsafety);
         this.setState({
             ...this.state,
             bvin: parseFloat(this.state.bvin),
             bvout: parseFloat(this.state.bvout),
             bripple: parseFloat(this.state.bripple),
             bfreq: parseFloat(this.state.bfreq),
-            bres: parseFloat(this.state.bres)
+            bres: parseFloat(this.state.bres),
+            resultsDisplay: true,
+            results: {
+                inductor: arr[0],
+                capacitor: arr[1],
+                irms: arr[2],               
+                d: arr[3]
+            }
         });
-        var arr = calculateBoostComps(this.state.bvin, this.state.bvout, this.state.bripple, this.state.bfreq, this.state.bres, this.state.bsafety);
+        
         if(this.state.bvin > this.state.bvout){
             console.log("wrong input!!");
-        }else{
-            
+        }else{            
             console.log(arr);
         }
         
     }
 
 
-    
+
     render(){
         return(
             <div>
@@ -90,7 +104,19 @@ export default class BoostConverter extends React.Component{
                     <label htmlFor={this.state.htmlID.safety}>Safety %</label>
                     <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.bsafety}/>
                 </p>
-                <Button  variant="primary" onClick={this.handleClick}>Calculate</Button>   
+                <Button  variant="primary" onClick={this.handleClick}>Calculate</Button> 
+                <div className="results-container"> 
+                        { this.state.resultsDisplay ?
+                            <div id="boost-results-container">
+                                <h1>Results</h1>
+                                <p><span>inductor: </span> {this.state.results.inductor} H</p>
+                                <p><span>capacitor: </span> {this.state.results.capacitor} F</p>
+                                <p><span>Irms: </span> {this.state.results.irms} A</p>
+                                <p><span>D: </span> {this.state.results.d} ratio</p>
+                            </div>                        
+                         : 
+                            <h1></h1> } 
+                </div>  
             </div>
         );
     }
