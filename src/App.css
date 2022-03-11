@@ -1,25 +1,42 @@
 #buck-container{
-    background-color: darkgrey;
+    background-color: darkgrey;     
+    width: 100%;  
 }
+#buck-in-container, #boost-in-container{
+    background-color: rgb(133, 127, 127);
+    display: flex; 
+    width: 100%;  
+}
+#buck-inputs-container, #boost-inputs-container{
+    background-color: rgb(138, 142, 143);
+    width: 25%;
+}
+
 #boost-container{
     background-color: rgb(105, 145, 123);
+    width: 100%;  
 }
 
 input{
     
     display:inline-block;
     width: 100px;
+
 }
 label{
     display:inline-block;
-    width: 70px;
+    width: 80px;
     font-weight: bold;
 }
 span{
     font-weight: bold;
+    color:rgb(18, 19, 122)
 }
 .results-container{
     display: inline-block;
+    width: 30%;
+    background-color: rgb(56, 136, 156);
+}
+img{
     width: 100%;
-    margin-top: 10px;
 }

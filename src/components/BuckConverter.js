@@ -85,7 +85,7 @@ export default class BuckConverter extends React.Component{
 
     render(){
         return(
-            <div>   
+            <div id="buck-in-container">   
                 <style type="text/css">
                     {`
                         .btn-calc {
@@ -95,33 +95,39 @@ export default class BuckConverter extends React.Component{
                         width: 100px;
                         }`
                     }
-                </style>                             
-                {/* <InputGroup vin={this.state.vin} vout={this.state.vout} ripple={this.state.ripple} freq={this.state.freq} res={this.state.res} safety={this.state.safety}/> */}
-                <p>
-                    <label htmlFor={this.state.htmlID.vin}>Vin (V)</label>
-                    <input id={this.state.htmlID.vin} onChange={this.handleChange} value={this.state.vin}/>
-                </p>
-                <p>
-                    <label htmlFor={this.state.htmlID.vout}>Vout (V)</label>
-                    <input id={this.state.htmlID.vout} onChange={this.handleChange} value={this.state.vout}/>
-                </p>
-                <p>
-                    <label htmlFor={this.state.htmlID.ripple}>Ripple</label>
-                    <input id={this.state.htmlID.ripple} onChange={this.handleChange} value={this.state.ripple}/>
-                </p>
-                <p>
-                    <label htmlFor={this.state.htmlID.freq}>Freq (Hz)</label>
-                    <input id={this.state.htmlID.freq} onChange={this.handleChange} value={this.state.freq}/>
-                </p>
-                <p>
-                    <label htmlFor={this.state.htmlID.res}>Res (ohm)</label>
-                    <input id={this.state.htmlID.res} onChange={this.handleChange} value={this.state.res}/>
-                </p>
-                <p>
-                    <label htmlFor={this.state.htmlID.safety}>Safety %</label>
-                    <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.safety}/>
-                </p>
-                <Button  variant="calc" title="calculate the components values" onClick={this.handleClick}>Calculate</Button>              
+                </style>
+                <div id="buck-inputs-container">
+                        {/* <InputGroup vin={this.state.vin} vout={this.state.vout} ripple={this.state.ripple} freq={this.state.freq} res={this.state.res} safety={this.state.safety}/> */}
+                    <p>
+                        <label htmlFor={this.state.htmlID.vin}>Vin (V)</label>
+                        <input id={this.state.htmlID.vin} onChange={this.handleChange} value={this.state.vin}/>
+                    </p>
+                    <p>
+                        <label htmlFor={this.state.htmlID.vout}>Vout (V)</label>
+                        <input id={this.state.htmlID.vout} onChange={this.handleChange} value={this.state.vout}/>
+                    </p>
+                    <p>
+                        <label htmlFor={this.state.htmlID.ripple}>Ripple</label>
+                        <input id={this.state.htmlID.ripple} onChange={this.handleChange} value={this.state.ripple}/>
+                    </p>
+                    <p>
+                        <label htmlFor={this.state.htmlID.freq}>Freq (Hz)</label>
+                        <input id={this.state.htmlID.freq} onChange={this.handleChange} value={this.state.freq}/>
+                    </p>
+                    <p>
+                        <label htmlFor={this.state.htmlID.res}>Res (ohm)</label>
+                        <input id={this.state.htmlID.res} onChange={this.handleChange} value={this.state.res}/>
+                    </p>
+                    <p>
+                        <label htmlFor={this.state.htmlID.safety}>Safety %</label>
+                        <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.safety}/>
+                    </p>
+                    <Button  variant="calc" title="calculate the components values" onClick={this.handleClick}>Calculate</Button> 
+                </div>    
+
+                <div id="buck-circuit-container"> 
+                    <img src={require("../buck.png")} width="100%" height="100%" />
+                </div>            
                 <div className="results-container"> 
                         { this.state.resultsDisplay ?
                             <div  id="buck-results-container">

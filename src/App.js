@@ -30,14 +30,12 @@ class App extends React.Component {
 
           <TabPanel>
             <div id="buck-container">
-              <h1>Buck Converter</h1>
               <BuckConverter />
             </div>
           </TabPanel>
 
           <TabPanel>
             <div id="boost-container">
-              <h1>Boost Converter</h1>
               <BoostConverter />
             </div>
           </TabPanel>
