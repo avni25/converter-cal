@@ -122,17 +122,19 @@ export default class BuckConverter extends React.Component{
                     <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.safety}/>
                 </p>
                 <Button  variant="calc" onClick={this.handleClick}>Calculate</Button>              
-                <div> { this.state.resultsDisplay ?
+                <div id="buck-results-container"> 
+                        { this.state.resultsDisplay ?
                             <div>
                                 <h1>Results</h1>
-                                <p>inductor: {this.state.results.inductor} </p>
-                                <p>inductor: {this.state.results.capacitor} </p>
-                                <p>inductor: {this.state.results.irms} </p>
-                                <p>inductor: {this.state.results.imax} </p>
-                                <p>inductor: {this.state.results.imin} </p>
-                                <p>inductor: {this.state.results.d} </p>
+                                <p><span>inductor: </span> {this.state.results.inductor} </p>
+                                <p><span>capacitor: </span> {this.state.results.capacitor} </p>
+                                <p><span>Irms: </span> {this.state.results.irms} </p>
+                                <p><span>Imax: </span> {this.state.results.imax} </p>
+                                <p><span>Imin: </span> {this.state.results.imin} </p>
+                                <p><span>D: </span> {this.state.results.d} </p>
                             </div>                        
-                     : <h1></h1> } </div>
+                         : 
+                            <h1></h1> } </div>
             </div>
         )
     }
