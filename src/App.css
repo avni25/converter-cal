@@ -8,14 +8,12 @@
     width: 100%;  
 }
 #buck-inputs-container, #boost-inputs-container{
-    background-color: rgb(138, 142, 143);
+    background-color: rgb(120, 123, 124);
     width: 25%;
+    padding: 1%;
 }
 
-#boost-container{
-    background-color: rgb(105, 145, 123);
-    width: 100%;  
-}
+
 
 input{
     
@@ -36,6 +34,7 @@ span{
     display: inline-block;
     width: 30%;
     background-color: rgb(56, 136, 156);
+    padding: 1%;
 }
 img{
     width: 100%;
