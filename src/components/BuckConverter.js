@@ -126,12 +126,12 @@ export default class BuckConverter extends React.Component{
                         { this.state.resultsDisplay ?
                             <div>
                                 <h1>Results</h1>
-                                <p><span>inductor: </span> {this.state.results.inductor} </p>
-                                <p><span>capacitor: </span> {this.state.results.capacitor} </p>
-                                <p><span>Irms: </span> {this.state.results.irms} </p>
-                                <p><span>Imax: </span> {this.state.results.imax} </p>
-                                <p><span>Imin: </span> {this.state.results.imin} </p>
-                                <p><span>D: </span> {this.state.results.d} </p>
+                                <p><span>inductor: </span> {this.state.results.inductor} H</p>
+                                <p><span>capacitor: </span> {this.state.results.capacitor} F</p>
+                                <p><span>Irms: </span> {this.state.results.irms} A</p>
+                                <p><span>Imax: </span> {this.state.results.imax} A</p>
+                                <p><span>Imin: </span> {this.state.results.imin} A</p>
+                                <p><span>D: </span> {this.state.results.d} ratio</p>
                             </div>                        
                          : 
                             <h1></h1> } </div>
