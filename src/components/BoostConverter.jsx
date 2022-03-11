@@ -80,12 +80,22 @@ export default class BoostConverter extends React.Component{
     render(){
         return(
             <div>
+                <style type="text/css">
+                    {`
+                        .btn-boostbtn {
+                        background-color: green;
+                        color: white;
+                        margin-left: 70px;
+                        width: 100px;
+                        }`
+                    }
+                </style>    
                  <p>
-                    <label htmlFor={this.state.htmlID.vin}>Vin</label>
+                    <label htmlFor={this.state.htmlID.vin}>Vin (V)</label>
                     <input id={this.state.htmlID.vin} onChange={this.handleChange} value={this.state.bvin}/>
                 </p>
                 <p>
-                    <label htmlFor={this.state.htmlID.vout}>Vout</label>
+                    <label htmlFor={this.state.htmlID.vout}>Vout (V)</label>
                     <input id={this.state.htmlID.vout} onChange={this.handleChange} value={this.state.bvout}/>
                 </p>
                 <p>
@@ -93,18 +103,18 @@ export default class BoostConverter extends React.Component{
                     <input id={this.state.htmlID.ripple} onChange={this.handleChange} value={this.state.bripple}/>
                 </p>
                 <p>
-                    <label htmlFor={this.state.htmlID.freq}>Freq</label>
+                    <label htmlFor={this.state.htmlID.freq}>Freq (Hz)</label>
                     <input id={this.state.htmlID.freq} onChange={this.handleChange} value={this.state.bfreq}/>
                 </p>
                 <p>
-                    <label htmlFor={this.state.htmlID.res}>Res</label>
+                    <label htmlFor={this.state.htmlID.res}>Res (ohm)</label>
                     <input id={this.state.htmlID.res} onChange={this.handleChange} value={this.state.bres}/>
                 </p>
                 <p>
                     <label htmlFor={this.state.htmlID.safety}>Safety %</label>
                     <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.bsafety}/>
                 </p>
-                <Button  variant="primary" onClick={this.handleClick}>Calculate</Button> 
+                <Button  variant="boostbtn" onClick={this.handleClick}>Calculate</Button> 
                 <div className="results-container"> 
                         { this.state.resultsDisplay ?
                             <div id="boost-results-container">

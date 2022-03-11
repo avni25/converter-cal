@@ -91,18 +91,18 @@ export default class BuckConverter extends React.Component{
                         .btn-calc {
                         background-color: purple;
                         color: white;
-                        margin-left: 50px;
+                        margin-left: 70px;
                         width: 100px;
                         }`
                     }
                 </style>                             
                 {/* <InputGroup vin={this.state.vin} vout={this.state.vout} ripple={this.state.ripple} freq={this.state.freq} res={this.state.res} safety={this.state.safety}/> */}
                 <p>
-                    <label htmlFor={this.state.htmlID.vin}>Vin</label>
+                    <label htmlFor={this.state.htmlID.vin}>Vin (V)</label>
                     <input id={this.state.htmlID.vin} onChange={this.handleChange} value={this.state.vin}/>
                 </p>
                 <p>
-                    <label htmlFor={this.state.htmlID.vout}>Vout</label>
+                    <label htmlFor={this.state.htmlID.vout}>Vout (V)</label>
                     <input id={this.state.htmlID.vout} onChange={this.handleChange} value={this.state.vout}/>
                 </p>
                 <p>
@@ -110,18 +110,18 @@ export default class BuckConverter extends React.Component{
                     <input id={this.state.htmlID.ripple} onChange={this.handleChange} value={this.state.ripple}/>
                 </p>
                 <p>
-                    <label htmlFor={this.state.htmlID.freq}>Freq</label>
+                    <label htmlFor={this.state.htmlID.freq}>Freq (Hz)</label>
                     <input id={this.state.htmlID.freq} onChange={this.handleChange} value={this.state.freq}/>
                 </p>
                 <p>
-                    <label htmlFor={this.state.htmlID.res}>Res</label>
+                    <label htmlFor={this.state.htmlID.res}>Res (ohm)</label>
                     <input id={this.state.htmlID.res} onChange={this.handleChange} value={this.state.res}/>
                 </p>
                 <p>
                     <label htmlFor={this.state.htmlID.safety}>Safety %</label>
                     <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.safety}/>
                 </p>
-                <Button  variant="calc" onClick={this.handleClick}>Calculate</Button>              
+                <Button  variant="calc" title="calculate the components values" onClick={this.handleClick}>Calculate</Button>              
                 <div className="results-container"> 
                         { this.state.resultsDisplay ?
                             <div  id="buck-results-container">
