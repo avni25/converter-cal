@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import {calculateBoostComps} from "../converters/converters";
 
+  
 
 export default class BoostConverter extends React.Component{
     constructor(props){
@@ -31,7 +32,6 @@ export default class BoostConverter extends React.Component{
         // var regEx = /\d+/gi;
         console.log(e.target);
         this.setState({ ...this.state, [e.target.id]: e.target.value });   
-        console.log(e.target.value);
     }
 
     componentWillUnmount(){
@@ -39,23 +39,23 @@ export default class BoostConverter extends React.Component{
     }
 
     componentDidUpdate(){
-        console.log(this.state);
-        
+        console.log(this.state);        
     }
     handleClick(){
         
         this.setState({
             ...this.state,
-            vin: parseFloat(this.state.bvin),
-            vout: parseFloat(this.state.bvout),
-            ripple: parseFloat(this.state.bripple),
-            freq: parseFloat(this.state.bfreq),
-            res: parseFloat(this.state.bres)
+            bvin: parseFloat(this.state.bvin),
+            bvout: parseFloat(this.state.bvout),
+            bripple: parseFloat(this.state.bripple),
+            bfreq: parseFloat(this.state.bfreq),
+            bres: parseFloat(this.state.bres)
         });
         var arr = calculateBoostComps(this.state.bvin, this.state.bvout, this.state.bripple, this.state.bfreq, this.state.bres, this.state.bsafety);
         if(this.state.bvin > this.state.bvout){
             console.log("wrong input!!");
         }else{
+            
             console.log(arr);
         }
         
