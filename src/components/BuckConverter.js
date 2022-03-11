@@ -14,6 +14,15 @@ export default class BuckConverter extends React.Component{
             freq: 40000,
             res: 10,
             safety: 1.25,
+            resultsDisplay: false,
+            results: {
+                inductor: 0,
+                capacitor: 0,
+                irms:0,
+                imax: 0,
+                imin: 0,
+                d:0
+            },
             htmlID: {
                 vin:"vin",
                 vout: "vout",
@@ -35,16 +44,26 @@ export default class BuckConverter extends React.Component{
     }
 
     handleClick(){
-        
+        var arr = calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, this.state.res, this.state.safety);
+
         this.setState({
             ...this.state,
             vin: parseFloat(this.state.vin),
             vout: parseFloat(this.state.vout),
             ripple: parseFloat(this.state.ripple),
             freq: parseFloat(this.state.freq),
-            res: parseFloat(this.state.res)
-        });
-        var arr = calculateBuckComps(this.state.vin, this.state.vout, this.state.ripple, this.state.freq, this.state.res, this.state.safety);
+            res: parseFloat(this.state.res),
+            resultsDisplay: true,
+            results:{
+                inductor: arr[0],
+                capacitor: arr[1],
+                irms: arr[2],
+                imax: arr[3],
+                imin: arr[4],
+                d: arr[5]
+            }
+        });        
+        
         if(this.state.vin< this.state.vout){
             console.log("wrong input!!");
         }else{
@@ -103,7 +122,17 @@ export default class BuckConverter extends React.Component{
                     <input id={this.state.htmlID.safety} onChange={this.handleChange} value={this.state.safety}/>
                 </p>
                 <Button  variant="calc" onClick={this.handleClick}>Calculate</Button>              
-
+                <div> { this.state.resultsDisplay ?
+                            <div>
+                                <h1>Results</h1>
+                                <p>inductor: {this.state.results.inductor} </p>
+                                <p>inductor: {this.state.results.capacitor} </p>
+                                <p>inductor: {this.state.results.irms} </p>
+                                <p>inductor: {this.state.results.imax} </p>
+                                <p>inductor: {this.state.results.imin} </p>
+                                <p>inductor: {this.state.results.d} </p>
+                            </div>                        
+                     : <h1></h1> } </div>
             </div>
         )
     }
