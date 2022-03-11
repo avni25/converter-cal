@@ -24,7 +24,7 @@ class App extends React.Component {
       <div>
         <Tabs>
           <TabList>
-            <Tab >BUCK</Tab>
+            <Tab id="tab-buck">BUCK</Tab>
             <Tab>BOOST</Tab>
           </TabList>
 

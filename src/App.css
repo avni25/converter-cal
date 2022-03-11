@@ -40,3 +40,9 @@ span{
 img{
     width: 100%;
 }
+#tab-buck{
+    background-color: rgb(21, 24, 160);
+    border-color: #aaa;
+    color: rgb(238, 227, 227);
+    border-radius: 5px 5px 0 0;
+}
