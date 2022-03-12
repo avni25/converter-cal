@@ -74,8 +74,7 @@ export default class BuckConverter extends React.Component{
 
 
     componentWillUnmount(){
-        console.log("unmount");
-        
+        console.log("unmount");        
     }
 
     componentDidUpdate(){

@@ -35,6 +35,7 @@ export default class BoostConverter extends React.Component{
         
     }
 
+    
     handleChange(e){
         // var regEx = /\d+/gi;
         console.log(e.target);
