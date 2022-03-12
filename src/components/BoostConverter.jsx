@@ -35,7 +35,7 @@ export default class BoostConverter extends React.Component{
         
     }
 
-    
+
     handleChange(e){
         // var regEx = /\d+/gi;
         console.log(e.target);
@@ -90,7 +90,7 @@ export default class BoostConverter extends React.Component{
                         }`
                     }
                 </style>   
-                <div id="boost-inputs-container">
+                <div  id="boost-inputs-container" >
                     <p>
                         <label htmlFor={this.state.htmlID.vin}>Vin (V)</label>
                         <input id={this.state.htmlID.vin} onChange={this.handleChange} value={this.state.bvin}/>

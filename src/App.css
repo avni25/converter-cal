@@ -7,12 +7,16 @@
     display: flex; 
     width: 100%;  
 }
-#buck-inputs-container, #boost-inputs-container{
+#buck-inputs-container{
     background-color: rgb(120, 123, 124);
     width: 25%;
     padding: 1%;
 }
-
+#boost-inputs-container{
+    background-color: rgb(70, 129, 93);
+    width: 25%;
+    padding: 1%;
+}
 
 
 input{
@@ -37,7 +41,8 @@ span{
     padding: 1%;
 }
 img{
-    width: 100%;
+    width: 600px;
+    height: 100%;
 }
 #tab-buck{
     background-color: rgb(21, 24, 160);

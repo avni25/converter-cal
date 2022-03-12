@@ -126,7 +126,7 @@ export default class BuckConverter extends React.Component{
                 </div>    
 
                 <div id="buck-circuit-container"> 
-                    <img src={require("../buck.png")} width="100%" height="100%" />
+                    <img src={require("../buck.png")} />
                 </div>            
                 <div className="results-container"> 
                         { this.state.resultsDisplay ?
