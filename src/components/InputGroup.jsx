@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import BuckConverter from './BuckConverter';
+import {calculateBuckComps} from "../converters/converters";
+
 
 export default class InputGroup extends React.Component{
     constructor(props){
